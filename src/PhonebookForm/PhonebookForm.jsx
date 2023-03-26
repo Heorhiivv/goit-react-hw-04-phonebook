@@ -1,30 +1,30 @@
-import React, { Component } from "react"
-import { nanoid } from "nanoid"
+import React, { Component } from 'react';
+import { nanoid } from 'nanoid';
 export class PhonebookForm extends Component {
   state = {
-    name: "",
-    number: "",
-  }
-  onNameFormSubmit = (e) => {
-    e.preventDefault()
-    const { name, number } = this.state
+    name: '',
+    number: '',
+  };
+  onNameFormSubmit = e => {
+    e.preventDefault();
+    const { name, number } = this.state;
     const newContact = {
       id: nanoid(),
       name: name,
       number: number,
-    }
-    this.props.addContact(newContact)
-    this.reset()
-  }
-  onInputChange = (e) => {
-    const { name, value } = e.currentTarget
-    this.setState({ [name]: value })
-  }
+    };
+    this.props.addContact(newContact);
+    this.reset();
+  };
+  onInputChange = e => {
+    const { name, value } = e.currentTarget;
+    this.setState({ [name]: value });
+  };
   reset = () => {
-    this.setState({ name: "", number: "" })
-  }
+    this.setState({ name: '', number: '' });
+  };
   render() {
-    const { name, number } = this.state
+    const { name, number } = this.state;
 
     return (
       <>
@@ -56,6 +56,6 @@ export class PhonebookForm extends Component {
           <button type="submit">Add contact</button>
         </form>
       </>
-    )
+    );
   }
 }
